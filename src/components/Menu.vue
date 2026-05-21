@@ -122,7 +122,7 @@
                 :icon="['fas', grimoire.isMuted ? 'volume-mute' : 'volume-up']"
             /></em>
           </li>
-          <li v-if="players.length && session.claimedSeat === -1" @click="toggleHideSittingWarning">
+          <li v-if="players.length && !hasSeat" @click="toggleHideSittingWarning">
             Nechci sedět
             <em
               ><font-awesome-icon
@@ -254,7 +254,13 @@ import { mapMutations, mapState } from "vuex";
 export default {
   computed: {
     ...mapState(["grimoire", "session", "edition"]),
-    ...mapState("players", ["players"])
+    ...mapState("players", ["players"]),
+
+    hasSeat() {
+      return this.players.some(
+        player => player.id === this.session.playerId
+      );
+    }
   },
   data() {
     return {

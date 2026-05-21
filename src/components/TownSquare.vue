@@ -59,7 +59,7 @@
 
     <div
       class="seatNotTaken"
-      v-if="players.length && !grimoire.isHideSittingWarning && session.claimedSeat === -1"
+      v-if="players.length && !grimoire.isHideSittingWarning && !hasSeat"
     >
       <h3>
         <span>Nemáš zabrané místo</span>
@@ -172,6 +172,12 @@ export default {
       const elapsed = Math.floor(((hostNow - timerStartedAt)) / 1000);
 
       return Math.max(0, timerTime - elapsed);
+    },
+
+    hasSeat() {
+      return this.players.some(
+        player => player.id === this.session.playerId
+      );
     }
 
   },

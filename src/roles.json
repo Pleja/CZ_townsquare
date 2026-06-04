@@ -1750,20 +1750,6 @@
     "ability": "Pokud veřejně při svojí nominaci prohlásíš, že jsi Skřet, a jsi stejný den i popraven, tvůj tým vyhrává."
   },
   {
-    "id": "mephit",
-    "name": "Mephit",
-    "edition": "",
-    "team": "minion",
-    "firstNight": 41,
-    "firstNightReminder": "Ukaž Mephitovi jeho tajné slovo.",
-    "otherNight": 26,
-    "otherNightReminder": "Vzbuď 1. dobrého hráče, který řekl tajné Mephitovo slovo a ukaž mu kartu 'Ty jsi' a poté palec dolů.",
-    "reminders": ["Stane se zlým",
-        "Bez schopnosti"],
-    "setup": false,
-    "ability": "Na začátku hry se dozvíš tajné slovo. 1. dobrý hráč, který toto slovo řekne se následující noc stane zlým."
-  },
-  {
     "id": "mezepheles",
     "name": "Mezepheles",
     "edition": "",

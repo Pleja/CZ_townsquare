@@ -13,7 +13,7 @@
     <h3>
       Reference postav
       <font-awesome-icon icon="address-card" />
-      {{ edition.name || "Custom Script" }}
+      {{ edition.name || "Vlastní skript" }}
     </h3>
     <div
       v-for="(teamRoles, team) in rolesGrouped"

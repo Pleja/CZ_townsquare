@@ -671,8 +671,8 @@ li.move:not(.from) .player .overlay svg.move {
 .player .talk {
   position: absolute;
   animation: talkPop 200ms ease-out;
-  top: -40px;
-  left: 130px;
+  top: -20%;
+  left: 80%;
   width: 50%;
   height: 60%;
   filter: drop-shadow(0 0 3px black);

@@ -1,5 +1,13 @@
 # Release Notes
 
+### Verze 2.18.1
+- Aktualizování ikonek všech postav
+  - Všechny obrázky pochází z github repozitáře uživatele [tomozbot](https://github.com/tomozbot/botc-icons)
+- Přidání připomínkového tokenu Věštci zkázy
+- Snížení základní doby mezi hráči u nominací na 1s (byly 3s)
+
+---
+
 ### Verze 2.18.0
 - Přidání možnosti řízeného shrnutí hry pro vypravěče
   - Vypravěč může postupně zasílat jednotlivé postavy všem hráčům
@@ -24,7 +32,7 @@
 ---
 
 ### Verze 2.17.0
-- **Tato verze se skládá ze všech commitů udělaných od poslední verze (2.16.2). Jedná se o nádstavbu [původního projektu](https://github.com/bra1n/townsquare). Tato a všechny následující verze budou umístěné na [mojí Github stránce](https://pleja.github.io/townsquare/)**
+- **Tato verze se skládá ze všech commitů udělaných od poslední verze (2.16.2). Jedná se o nádstavbu [původního projektu](https://github.com/bra1n/townsquare). Tato a všechny následující verze budou umístěné na [mojí Github stránce](https://pleja.github.io/CZ_townsquare/)**
 
 - Přidán text a tlačítko pro přivolání hráčů do Menu v sekci Grimoár
   - Přidán zvukový efekt pro tuto akci

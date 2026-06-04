@@ -3,7 +3,7 @@
     "id": "doomsayer",
     "firstNightReminder": "",
     "otherNightReminder": "",
-    "reminders": [],
+    "reminders": ["Bez schopnosti"],
     "setup": false,
     "name": "Věštec zkázy",
     "team": "fabled",

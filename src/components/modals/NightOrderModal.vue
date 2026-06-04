@@ -13,7 +13,7 @@
     <h3>
       Pořadí nocí
       <font-awesome-icon icon="cloud-moon" />
-      {{ edition.name || "Custom Script" }}
+      {{ edition.name || "Vlastní skript" }}
     </h3>
     <div class="night">
       <ul class="first">

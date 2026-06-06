@@ -13,11 +13,14 @@
       <em class="blue">
         {{ voters.length }} hlas{{ voters.length > 1 && voters.length < 5 ? "y" : "" }}{{ voters.length > 4 || voters.length === 0 ? "ů" : "" }}
       </em>
-      je pro
-      <em v-if="nominee.role.team !== 'traveler'">
-        (většina je {{ Math.ceil(alive / 2) }})
+      j{{ voters.length > 1 ? "sou" : "e" }} pro
+      <em v-if="nominee.role.team === 'traveler'">
+        (špalek je od {{ Math.ceil(players.length / 2) }} hlasů)
       </em>
-      <em v-else>(většina je {{ Math.ceil(players.length / 2) }})</em>
+      <em v-else-if="this.session.todayMaxVotes !== 0">
+        (Bez popravy při {{ this.session.todayMaxVotes }} hlasech, špalek je od {{ this.session.todayMaxVotes + 1 }} hlasů)
+      </em>
+      <em v-else>(špalek je od {{ Math.ceil(alive / 2) }} hlasů)</em>
 
       <template v-if="!session.isSpectator">
         <div v-if="!session.isVoteInProgress && session.lockedVote < 1">
@@ -183,7 +186,8 @@ export default {
   },
   data() {
     return {
-      voteTimer: null
+      voteTimer: null,
+      markedNewPlayer: false
     };
   },
   methods: {
@@ -227,6 +231,10 @@ export default {
       this.$store.commit("session/lockVote", 0);
     },
     finish() {
+      if ((this.voters.length > this.session.todayMaxVotes) && (this.voters.length >= Math.ceil(this.alive / 2)) && this.markedNewPlayer) {
+        this.$store.commit("session/setTodayMaxVotes", this.voters.length);
+        this.markedNewPlayer = false;
+      }
       clearInterval(this.voteTimer);
       this.$store.commit("session/addHistory", this.players);
       this.$store.commit("session/nomination");
@@ -245,9 +253,11 @@ export default {
       }
     },
     setMarked() {
+      this.markedNewPlayer = true;
       this.$store.commit("session/setMarkedPlayer", this.session.nomination[1]);
     },
     removeMarked() {
+      this.markedNewPlayer = false;
       this.$store.commit("session/setMarkedPlayer", -1);
     }
   }

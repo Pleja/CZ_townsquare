@@ -173,6 +173,10 @@ class LiveSession {
         if (!this._isSpectator) return;
         this._store.commit("session/setMarkedPlayer", params);
         break;
+      case "todayMax":
+        if (!this._isSpectator) return;
+        this._store.commit("session/setTodayMaxVotes", params);
+        break;
       case "isNight":
         if (!this._isSpectator) return;
         this._store.commit("toggleNight", params);
@@ -324,6 +328,7 @@ class LiveSession {
         lockedVote: session.lockedVote,
         isVoteInProgress: session.isVoteInProgress,
         markedPlayer: session.markedPlayer,
+        todayMaxVotes: session.todayMaxVotes,
         fabled: fabled.map(f => (f.isCustom ? f : { id: f.id })),
         ...(session.nomination ? { votes: session.votes } : {})
       });
@@ -350,6 +355,7 @@ class LiveSession {
       lockedVote,
       isVoteInProgress,
       markedPlayer,
+      todayMaxVotes,
       fabled
     } = data;
     const players = this._store.state.players.players;
@@ -407,6 +413,7 @@ class LiveSession {
         isVoteInProgress
       });
       this._store.commit("session/setMarkedPlayer", markedPlayer);
+      this._store.commit("session/setTodayMaxVotes", todayMaxVotes);
       this._store.commit("players/setFabled", {
         fabled: fabled.map(f => this._store.state.fabled.get(f.id) || f)
       });
@@ -881,6 +888,15 @@ class LiveSession {
   }
 
   /**
+   * Set the maximum votes for today. ST only
+   * @param votes number of maximum votes reached today
+   */
+  setTodayMax(votes) {
+    if (this._isSpectator) return;
+    this._send("todayMax", votes);
+  }
+
+  /**
    * Sent the timerTime. ST only
    * @param timerTime current time in seconds, minimum 60
    */
@@ -1085,6 +1101,9 @@ export default store => {
         break;
       case "session/setMarkedPlayer":
         session.setMarked(payload);
+        break;
+      case "session/setTodayMaxVotes":
+        session.setTodayMax(payload);
         break;
       case "players/swap":
         session.swapPlayer(payload);

@@ -376,6 +376,7 @@ export default {
       this.$store.commit("toggleNight");
       if (this.grimoire.isNight) {
         this.$store.commit("session/setMarkedPlayer", -1);
+        this.$store.commit("session/setTodayMaxVotes", 0);
       }
     },
     toggleCallPlayers() {

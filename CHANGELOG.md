@@ -1,5 +1,12 @@
 # Release Notes
 
+### Verze 2.18.2
+- Vylepšení nominací
+  - Informační text nově píše, kolik hlasů je potřeba pro nominaci bez popravy a kolik pro poravu při více nominacích za den
+  - Maximální počet hlasů dne se restartuje při přepnutí na noc
+
+---
+
 ### Verze 2.18.1
 - Aktualizování ikonek všech postav
   - Všechny obrázky pochází z github repozitáře uživatele [tomozbot](https://github.com/tomozbot/botc-icons)

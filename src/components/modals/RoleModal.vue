@@ -42,7 +42,7 @@
         class="button"
         :class="{ townsfolk: tab === 'otherTravelers' }"
         @click="tab = 'otherTravelers'"
-        >Ostatní pocestní</span
+        >Ostatní poutníci</span
       >
     </div>
   </Modal>

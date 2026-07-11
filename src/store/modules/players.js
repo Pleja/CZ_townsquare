@@ -13,6 +13,7 @@ const NEWPLAYER = {
 const state = () => ({
   players: [],
   fabled: [],
+  loric: [],
   bluffs: []
 });
 

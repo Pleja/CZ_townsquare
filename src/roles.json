@@ -33,7 +33,7 @@
     "edition": "tb",
     "team": "townsfolk",
     "firstNight": 49,
-    "firstNightReminder": "Ukaž vyšetřovateli token Poskoka, který je ve hře. Ukaž na dva hráče, jeden z nich je ten Poskok.",
+    "firstNightReminder": "Ukaž Vyšetřovateli token Poskoka, který je ve hře. Ukaž na dva hráče, jeden z nich je ten Poskok.",
     "otherNight": 0,
     "otherNightReminder": "",
     "reminders": ["Poskok",
@@ -117,7 +117,7 @@
     "otherNightReminder": "Pokud Strážkyně krkavců dnes večer zemřela: Strážkyně krkavců ukáže na hráče. Ukaž jí token tohoto hráče.",
     "reminders": [],
     "setup": false,
-    "ability": "Pokud v noci zemřeš, budeš probuzen, zvolíš jednoho hráče a zjistíš jeho postavu."
+    "ability": "Pokud v noci zemřeš, budeš probuzena, zvolíš jednoho hráče a zjistíš jeho postavu."
   },
   {
     "id": "virgin",

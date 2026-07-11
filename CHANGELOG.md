@@ -1,5 +1,17 @@
 # Release Notes
 
+### Verze 2.18.3
+- Přidání varování u nominací pro mrtvé hráče, že mají poslední hlas
+- Přidání varování u nominací pro vypravěče, že někteří hráči, kteří by mohli hlasovat, nesedí
+- Upravení barvy hlasujících mrtvých hráčů při nominacích
+- Upravení menu přidávání Loriků a Proslulých do hry
+- Oprava popisku u Strážkyně krkavců, Anděla a Tora
+- Přeložení připomínkového tokenu u Revolucionáře a Lháře
+- Přejmenování Ventriloquist na Břichomluvce
+- Přepsání Pocestných v Grimoáru na Poutníky
+
+---
+
 ### Verze 2.18.2
 - Vylepšení nominací
   - Informační text nově píše, kolik hlasů je potřeba pro nominaci bez popravy a kolik pro poravu při více nominacích za den

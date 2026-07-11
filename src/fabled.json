@@ -12,9 +12,9 @@
   {
     "id": "angel",
     "firstNight": 2,
-    "firstNightReminder": "Oznam, kteří hráči jsou ochraňováni Andělem.",
+    "firstNightReminder": "Oznam, kteří hráči jsou chránění Andělem.",
     "otherNightReminder": "",
-    "reminders": ["Ochraňovat", "Něco zlého"],
+    "reminders": ["Chráněný", "Něco zlého"],
     "setup": false,
     "name": "Anděl",
     "team": "fabled",
@@ -45,7 +45,7 @@
     "id": "revolutionary",
     "firstNightReminder": "",
     "otherNightReminder": "",
-    "reminders": ["Used"],
+    "reminders": ["Projevil se špatně?"],
     "setup": false,
     "name": "Revolucionář",
     "team": "fabled",
@@ -77,7 +77,7 @@
     "id": "fibbin",
     "firstNightReminder": "",
     "otherNightReminder": "",
-    "reminders": ["Použitá"],
+    "reminders": ["Bez schopnosti"],
     "setup": false,
     "name": "Lhář",
     "team": "fabled",
@@ -143,127 +143,5 @@
     "name": "Převozník",
     "team": "fabled",
     "ability": "Poslední den se všem mrtvým hráčům obnoví hlasovací token."
-  },
-
-
-
-
-
-
-
-
-
-
-  {
-    "id": "stormcatcher",
-    "firstNight": 5,
-    "firstNightReminder": "Oznam která postava je v bouřce. Pokud je tato postava ve hře, tak jejího hráče označ připomínkovým žetonem 'V bouřce'. Vzbuď postupně každého zlého hráče a ukaž mu token Lapače Bouřek a poté ukaž na tohoto hráče. Pokud není ve hře, tak vzbuď postupně každého zlé hráče a ukaž mu kartu 'Tyto postavy nejsou ve hře' a relevantní token postavy.",
-    "otherNightReminder": "",
-    "reminders": ["V bouřce"],
-    "setup": false,
-    "name": "Lapač bouřek",
-    "team": "loric",
-    "ability": "Řekni dobrou postavu. Pokud je ve hře, tak může zemřít pouze popravou, ale zlí hráči ví, který hráč to je."
-  },
-  {
-    "id": "bigwig",
-    "firstNightReminder": "",
-    "otherNightReminder": "",
-    "reminders": [],
-    "setup": false,
-    "name": "Hlavoun",
-    "team": "loric",
-    "ability": "Každý nominovaný si vybere hráče: do hlasování může mluvit pouze tento hráč a zároveň ”šílí”, že nominovaný je dobrý, jinak může zemřít."
-  },
-  {
-    "id": "bootlegger",
-    "firstNightReminder": "",
-    "otherNightReminder": "",
-    "reminders": [],
-    "setup": false,
-    "name": "Pašerák",
-    "team": "loric",
-    "ability": "Skript používá domácí postavy nebo pravidla."
-  },
-  {
-    "id": "gardener",
-    "firstNightReminder": "",
-    "otherNightReminder": "",
-    "reminders": [],
-    "setup": false,
-    "name": "Zahradník",
-    "team": "loric",
-    "ability": "Vypravěč přiřadil 1 a více postav hráčům."
-  },
-  {
-    "id": "hindu",
-    "firstNightReminder": "",
-    "otherNightReminder": "",
-    "reminders": [],
-    "setup": false,
-    "name": "Hinduista",
-    "team": "loric",
-    "ability": "První 4 hráči, kteří zemřou, jsou okamžitě oživeni jako Poutníci stejné příslušnosti."
-  },
-  {
-    "id": "pope",
-    "firstNightReminder": "",
-    "otherNightReminder": "",
-    "reminders": [],
-    "setup": false,
-    "name": "Papež",
-    "team": "loric",
-    "ability": "Ve hře můžou být duplicitní dobré postavy. Démon může takové postavy dostat jako blafy."
-  },
-  {
-    "id": "tor",
-    "firstNightReminder": "",
-    "otherNight": 68,
-    "otherNightReminder": "Pokud dnes zemřel hráč, tak mu ukaž kartu 'Ty jsi', jeho token postavy a palec nahoru, nebo dolů.",
-    "reminders": [],
-    "setup": false,
-    "name": "Tor",
-    "team": "loric",
-    "ability": "Hráči neví jejich postavu a příslušnost. Tyto informace zjistí, až když zemřou."
-  },
-  {
-    "id": "ventriloquist",
-    "firstNightReminder": "",
-    "otherNightReminder": "",
-    "reminders": ["Šílí"],
-    "setup": false,
-    "name": "Ventriloquist",
-    "team": "loric",
-    "ability": "Pokud hráč šílí jako nová postava při své nominaci, tak dnes nemusí zemřít při popravě."
-  },
-  {
-    "id": "zenomancer",
-    "firstNightReminder": "",
-    "otherNightReminder": "",
-    "reminders": ["Úkol"],
-    "setup": false,
-    "name": "Zenomancer",
-    "team": "loric",
-    "ability": "Jeden nebo více hráčů má svůj úkol. Když ho hráč splní, tak se dozví pravdivou informaci."
-  },
-  {
-    "id": "godofug",
-    "firstNightReminder": "",
-    "otherNightReminder": "",
-    "reminders": ["Má Ug vrch"],
-    "setup": false,
-    "name": "Bůh Ug",
-    "team": "loric",
-    "ability": "Sám Ug vrch. Kdo má Ug vrch, smí říct jen sám zvuk v čas, ale má dva hlas. Když ne, Ug vrch dál."
-  },
-  {
-    "id": "knaves",
-    "firstNightReminder": "",
-    "otherNightReminder": "",
-    "reminders": [],
-    "setup": false,
-    "name": "Lumpové",
-    "team": "loric",
-    "ability": "Ve hře jsou 2 Vypravěči: jeden lže a druhý říká pravdu. Jednou za hru, při soumraku, se můžou prohodit."
   }
 ]

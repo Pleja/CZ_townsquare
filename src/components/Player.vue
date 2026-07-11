@@ -633,6 +633,10 @@ export default {
     }
   }
 }
+// Colors dead players vote icons differently
+.player.dead .overlay svg.vote.fa-hand-paper * {
+  fill: url(#traveler);
+}
 
 // other player voted yes, but is not locked yet
 #townsquare.vote .player.vote-yes .overlay svg.vote.fa-hand-paper {

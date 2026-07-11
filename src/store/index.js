@@ -7,6 +7,7 @@ import session from "./modules/session";
 import editionJSON from "../editions.json";
 import rolesJSON from "../roles.json";
 import fabledJSON from "../fabled.json";
+import loricJSON from "../loric.json";
 import jinxesJSON from "../hatred.json";
 
 Vue.use(Vuex);
@@ -58,6 +59,7 @@ const editionJSONbyId = new Map(
 );
 const rolesJSONbyId = new Map(rolesJSON.map(role => [role.id, role]));
 const fabled = new Map(fabledJSON.map(role => [role.id, role]));
+const loric = new Map(loricJSON.map(role => [role.id, role]));
 
 // jinxes
 let jinxes = {};
@@ -118,6 +120,7 @@ export default new Vuex.Store({
     modals: {
       edition: false,
       fabled: false,
+      loric: false,
       gameState: false,
       nightOrder: false,
       reference: false,
@@ -130,6 +133,7 @@ export default new Vuex.Store({
     roles: getRolesByEdition(),
     otherTravelers: getTravelersNotInEdition(),
     fabled,
+    loric,
     jinxes
   },
   getters: {
@@ -254,6 +258,11 @@ export default new Vuex.Store({
         ...processedRoles.filter(r => r.team === "fabled").map(r => [r.id, r]),
         ...fabledJSON.map(role => [role.id, role])
       ]);
+      // update Loric to include custom Loric from this script
+      state.loric = new Map([
+        ...processedRoles.filter(r => r.team === "loric").map(r => [r.id, r]),
+        ...loricJSON.map(role => [role.id, role])
+      ])
       // update extraTravelers map to only show travelers not in this script
       state.otherTravelers = new Map(
         rolesJSON

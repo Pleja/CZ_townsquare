@@ -72,6 +72,9 @@
             Odebrat značku
           </div>
         </div>
+        <em class="warning" v-if="!isEverybodyWithVoteSitting">
+          Někteří hráči nesedí!
+        </em>
       </template>
       <template v-else-if="canVote">
         <div v-if="!session.isVoteInProgress">
@@ -93,6 +96,9 @@
             Ruka NAHORU
           </div>
         </div>
+        <em class="warning" v-if="canVote && isPlayerDead">
+          Máš poslední hlas!
+        </em>
       </template>
       <div v-else-if="!player">
         Prosím zaber si místo pro hlasování.
@@ -166,6 +172,13 @@ export default {
       const indexAdjusted =
         (index - 1 + players - session.nomination[1]) % players;
       return indexAdjusted >= session.lockedVote - 1;
+    },
+    isPlayerDead: function() {
+      const index = this.players.findIndex(p => p.id === this.session.playerId);
+      return index >= 0 && this.players[index].isDead;
+    },
+    isEverybodyWithVoteSitting: function() {
+      return !this.players.some(player => player.id === "" && !player.isVoteless);
     },
     voters: function() {
       const nomination = this.session.nomination[1];
@@ -298,6 +311,9 @@ export default {
     font-weight: bold;
     &.blue {
       color: $townsfolk;
+    }
+    &.warning {
+      font-size: 1.5em;
     }
   }
 

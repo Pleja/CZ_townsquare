@@ -1,13 +1,32 @@
 <template>
   <Modal v-if="modals.fabled && fabled.length" @close="toggleModal('fabled')">
     <h3>
-      Přidat proslulou postavu do hry
+      Přidat postavu Proslulého nebo Lorika do hry
     </h3>
-    <ul class="tokens">
+    <ul class="tokens" v-if="tab === 'fabled'">
       <li v-for="role in fabled" :key="role.id" @click="setFabled(role)">
         <Token :role="role" />
       </li>
     </ul>
+    <ul class="tokens" v-else-if="tab === 'loric'">
+      <li v-for="role in loric" :key="role.id" @click="setFabled(role)">
+        <Token :role="role" />
+      </li>
+    </ul>
+    <div class="button-group">
+      <span
+        class="button"
+        :class="{ townsfolk: tab === 'fabled' }"
+        @click="tab = 'fabled'"
+        >Proslulí</span
+      >
+      <span
+        class="button"
+        :class="{ townsfolk: tab === 'loric' }"
+        @click="tab = 'loric'"
+        >Lorici</span
+      >
+    </div>
   </Modal>
 </template>
 
@@ -19,7 +38,7 @@ import Token from "../Token";
 export default {
   components: { Token, Modal },
   computed: {
-    ...mapState(["modals", "fabled", "grimoire"]),
+    ...mapState(["modals", "grimoire"]),
     fabled() {
       const fabled = [];
       this.$store.state.fabled.forEach(role => {
@@ -31,7 +50,24 @@ export default {
         }
       });
       return fabled;
+    },
+    loric() {
+      const loric = [];
+      this.$store.state.loric.forEach(role => {
+        // don't show loric that are already in play
+        if (
+          !this.$store.state.players.loric.some(fable => fable.id === role.id)
+        ) {
+          loric.push(role);
+        }
+      });
+      return loric;
     }
+  },
+  data() {
+    return {
+      tab: "fabled"
+    };
   },
   methods: {
     setFabled(role) {
@@ -54,6 +90,9 @@ ul.tokens li {
   margin: 0.5%;
   transition: transform 500ms ease;
 
+  &.townsfolk {
+    box-shadow: 0 0 10px $townsfolk, 0 0 10px #004cff;
+  }
   &:hover {
     transform: scale(1.2);
     z-index: 10;

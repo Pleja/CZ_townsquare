@@ -60,11 +60,6 @@
               />
             </em>
           </li>
-          <li @click="toggleGrimoire" v-if="players.length && !grimoire.isEndgame">
-            <template v-if="!grimoire.isPublic">Skrýt</template>
-            <template v-if="grimoire.isPublic">Zobrazit</template>
-            <em>[G]</em>
-          </li>
           <li @click="toggleNight" v-if="!session.isSpectator">
             <template v-if="!grimoire.isNight">Přepnout na noc</template>
             <template v-if="grimoire.isNight">Přepnout na den</template>
@@ -137,6 +132,11 @@
               <font-awesome-icon
                 :icon="['fas', grimoire.isEndgame ? 'check-square' : 'square']"
             /></em>
+          </li>
+          <li @click="toggleGrimoire" v-if="players.length && !grimoire.isEndgame">
+            <template v-if="!grimoire.isPublic">Skrýt</template>
+            <template v-if="grimoire.isPublic">Zobrazit</template>
+            <em>[G]</em>
           </li>
         </template>
 

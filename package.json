@@ -1,7 +1,7 @@
 {
   "name": "townsquare",
-  "version": "2.18.3",
-  "description": "Krvavá hodina odbila náměstí",
+  "version": "2.18.4",
+  "description": "Náměstí hry Krvavá hodina odbila",
   "author": "Steffen Baumgart",
   "scripts": {
     "serve": "vue-cli-service serve",

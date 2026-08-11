@@ -2,7 +2,40 @@
   <div class="token" @click="setRole" :class="[role.id]">
     <span
       class="icon"
-      v-if="role.id"
+      v-if="role.id && hasAlignment === 1 && role.team === 'traveler'"
+      :style="{
+        backgroundImage: `url(${
+          role.image && grimoire.isImageOptIn
+            ? role.image
+            : require('../assets/icons/alternate/' + (role.imageAlt || role.id) + '_g.png')
+        })`
+      }"
+    ></span>
+    <span
+      class="icon"
+      v-else-if="role.id && hasAlignment === 2 && role.team === 'traveler'"
+      :style="{
+        backgroundImage: `url(${
+          role.image && grimoire.isImageOptIn
+            ? role.image
+            : require('../assets/icons/alternate/' + (role.imageAlt || role.id) + '_e.png')
+        })`
+      }"
+    ></span>
+    <span
+      class="icon"
+      v-else-if="role.id && hasAlignment > 0"
+      :style="{
+        backgroundImage: `url(${
+          role.image && grimoire.isImageOptIn
+            ? role.image
+            : require('../assets/icons/alternate/' + (role.imageAlt || role.id) + '.png')
+        })`
+      }"
+    ></span>
+    <span
+      class="icon"
+      v-else-if="role.id"
       :style="{
         backgroundImage: `url(${
           role.image && grimoire.isImageOptIn
@@ -55,7 +88,8 @@ export default {
     role: {
       type: Object,
       default: () => ({})
-    }
+    },
+    hasAlignment: Number
   },
   computed: {
     reminderLeaves: function() {

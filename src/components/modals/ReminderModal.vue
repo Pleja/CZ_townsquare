@@ -64,9 +64,7 @@ export default {
         }
         // add global reminders
         if (role.remindersGlobal && role.remindersGlobal.length) {
-          reminders = [
-            ...reminders,
-            ...role.remindersGlobal.map(mapReminder(role))
+          reminders = [...reminders, ...role.remindersGlobal.map(mapReminder(role))
           ];
         }
       });

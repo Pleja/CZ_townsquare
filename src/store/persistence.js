@@ -1,8 +1,7 @@
 module.exports = store => {
   const updatePagetitle = isPublic =>
-    (document.title = `Krvavá hodina odbila ${
-      isPublic ? "náměstí" : "Grimoár"
-    }`);
+    (document.title = `${isPublic ? "Náměstí hry " : "Grimoár hry "}
+      Krvavá hodina odbila`);
 
   // initialize data
   if (localStorage.getItem("background")) {

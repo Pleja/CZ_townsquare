@@ -497,7 +497,7 @@ class LiveSession {
    * @param value
    */
   sendPlayer({ player, property, value}) {
-    if (this._isSpectator || property === "reminders") return;
+    if (this._isSpectator || property === "reminders" || property === "hasAlignment") return;
     const index = this._store.state.players.players.indexOf(player);
     if (property === "role") {
       if ((value.team && value.team === "traveler")) {
@@ -541,6 +541,13 @@ class LiveSession {
         value
       });
     }
+    if (property === "hasAlignment") {
+      this._send("player", {
+        index,
+        property,
+        value
+      });
+    }
   }
 
   /**
@@ -550,7 +557,7 @@ class LiveSession {
    * @param value
    * @private
    */
-  _updatePlayer({ index, property, value }) {
+  _updatePlayer({ index, property, value }) {//
     if (!this._isSpectator) return;
     const player = this._store.state.players.players[index];
     if (!player) return;
@@ -765,17 +772,25 @@ class LiveSession {
    */
   distributeRoles() {
     if (this._isSpectator) return;
-    const message = {};
+    const messageRole = {};
+    const messageAlignment = {};
     this._store.state.players.players.forEach((player, index) => {
       if (player.id && player.role) {
-        message[player.id] = [
+        messageRole[player.id] = [
           "player",
           { index, property: "role", value: player.role.id }
         ];
+        messageAlignment[player.id] = [
+          "player",
+          { index, property: "hasAlignment", value: player.hasAlignment }
+        ];
       }
     });
-    if (Object.keys(message).length) {
-      this._send("direct", message);
+    if (Object.keys(messageRole).length) {
+      this._send("direct", messageRole);
+    }
+    if (Object.keys(messageAlignment).length) {
+      this._send("direct", messageAlignment);
     }
   }
 

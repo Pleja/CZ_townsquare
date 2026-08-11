@@ -40,6 +40,7 @@
 
       <Token
         :role="player.role"
+        :hasAlignment="player.hasAlignment"
         @set-role="$emit('trigger', ['openRoleModal'])"
       />
 
@@ -91,14 +92,6 @@
         :title="player.name + ' chce mluvit.'"
       />
 
-      <!-- Claimed seat icon -->
-      <font-awesome-icon
-        icon="chair"
-        v-if="player.id && session.sessionId"
-        class="seat"
-        :class="{ highlight: session.isRolesDistributed }"
-      />
-
       <!-- Ghost vote icon -->
       <font-awesome-icon
         icon="vote-yea"
@@ -108,11 +101,20 @@
         title="Duchův hlas"
       />
 
+      <!-- Nomination icon -->
+      <font-awesome-icon
+        icon="hand-point-right"
+        class="nomination"
+        v-if="!grimoire.isEndgame && !session.isSpectator && !session.nomination"
+        @click="nominatePlayer()"
+        :title="player.name + ' chce někoho nominovat.'"
+      />
+
       <!-- Character not sent icon -->
       <font-awesome-icon
         icon="envelope"
         class="envelope"
-        v-if="grimoire.isEndgame && !session.isSpectator && !player.isSent && player.role.team !== 'traveler'"
+        v-if="grimoire.isEndgame && !session.isSpectator && !player.isSent"
         @click="sendToAll(true)"
         title="Poslat postavu všem hráčům"
       />
@@ -121,7 +123,7 @@
       <font-awesome-icon
         icon="envelope-open"
         class="envelope-open"
-        v-if="grimoire.isEndgame && !session.isSpectator && player.isSent && player.role.team !== 'traveler'"
+        v-if="grimoire.isEndgame && !session.isSpectator && player.isSent"
         @click="sendToAll(true)"
         title="Znovu poslat postavu všem hráčům"
       />
@@ -130,12 +132,25 @@
       <div class="marked">
         <font-awesome-icon icon="skull" />
       </div>
+
+      <!-- Name field -->
       <div
         class="name"
         @click="isMenuOpen = !isMenuOpen"
         :class="{ active: isMenuOpen }"
+        :title=player.name
       >
+        <!-- Claimed seat icon -->
+        <font-awesome-icon
+          icon="chair"
+          v-if="player.id && session.sessionId"
+          @click="updatePlayer('id', '')"
+          class="seat"
+          :class="{ highlight: session.isRolesDistributed }"
+        />
+        <!-- Name text -->
         <span>{{ player.name }}</span>
+        <!-- Pronouns icon -->
         <font-awesome-icon icon="venus-mars" v-if="player.pronouns" />
         <div class="pronouns" v-if="player.pronouns">
           <span>{{ player.pronouns }}</span>
@@ -153,6 +168,13 @@
             "
           >
             <font-awesome-icon icon="venus-mars" />Změnit zájmeno
+          </li>
+          <li
+            @click="changeAlignment"
+            v-if="!session.isSpectator"
+          >
+          <!-- v-if="!grimoire.isEndgame || !session.isSpectator" -->
+            <font-awesome-icon icon="yin-yang" />Změnit příslušnost
           </li>
           <template v-if="!session.isSpectator">
             <li @click="changeName"
@@ -175,19 +197,6 @@
               <font-awesome-icon icon="times-circle" />
               Odebrat
             </li>
-            <li
-              @click="updatePlayer('id', '', true)"
-              v-if="player.id && session.sessionId && !grimoire.isEndgame"
-            >
-              <font-awesome-icon icon="chair" />
-              Uvolnit místo
-            </li>
-            <template v-if="!session.nomination && !grimoire.isEndgame">
-              <li @click="nominatePlayer()">
-                <font-awesome-icon icon="hand-point-right" />
-                Nominovat
-              </li>
-            </template>
           </template>
           <li
             @click="claimSeat"
@@ -297,6 +306,11 @@ export default {
         property: "reminders",
         value: [...this.player.reminders]
       });
+      this.$store.commit("players/sendToAll", {
+        player: this.player,
+        property: "hasAlignment",
+        value: this.player.hasAlignment
+      });
       this.updatePlayer("isSent", true);
       if (closeMenu) {
         this.isMenuOpen = false;
@@ -334,6 +348,28 @@ export default {
         }
       }
     },
+    changeAlignment() {
+      if (this.player.role.team !== "traveler") {
+        this.updatePlayer("hasAlignment", this.player.hasAlignment === 2 ? 0 : (this.player.hasAlignment + 1) % 2, true);
+        if (this.$store.state.grimoire.isEndgame) {
+          this.$store.commit("players/update", {
+            player: this.player,
+            property: "isSent",
+            value: false
+          });
+        }
+      }
+      else if (this.player.role.team === "traveler") {
+        this.updatePlayer("hasAlignment", (this.player.hasAlignment + 1) % 3, true);
+        if (this.$store.state.grimoire.isEndgame) {
+          this.$store.commit("players/update", {
+            player: this.player,
+            property: "isSent",
+            value: false
+          });
+        }
+      }
+    },
     changeName() {
       if (this.session.isSpectator) return;
       const name = prompt("Jméno hráče", this.player.name) || this.player.name;
@@ -348,9 +384,13 @@ export default {
       if (
         this.session.isSpectator &&
         property !== "reminders" &&
-        property !== "pronouns"
+        property !== "pronouns" &&
+        property !== "hasAlignment"
       )
         return;
+      if (property === "id") {
+        if  (!confirm(`Chceš uvolnit místo hráče ${this.player.name}?`)) return;
+      }
       this.$store.commit("players/update", {
         player: this.player,
         property,
@@ -444,7 +484,7 @@ export default {
       width: 100%;
       height: 100%;
       left: 50%;
-      top: -30%;
+      top: -60%;
       opacity: 0;
       transform: perspective(400px) scale(1.5);
       transform-origin: top center;
@@ -803,9 +843,8 @@ li.move:not(.from) .player .overlay svg.move {
 /****** Seat icon ********/
 .player .seat {
   position: absolute;
-  transform: scale(2);
-  left: -5px;
-  margin-top: 9%;
+  transform: scale(1.6);
+  left: -10px;
   color: #fff;
   filter: drop-shadow(0 0 3px black);
   cursor: default;
@@ -828,6 +867,17 @@ li.move:not(.from) .player .overlay svg.move {
 
 .player.you .seat {
   color: $townsfolk;
+}
+
+/****** Nomination icon ******/
+.player .nomination {
+  position: absolute;
+  transform: scale(1.4);
+  bottom: 40px;
+  margin-top: 8%;
+  color: #fff;
+  filter: drop-shadow(0 0 3px black);
+  z-index: 2;
 }
 
 /****** Character sent icon ******/

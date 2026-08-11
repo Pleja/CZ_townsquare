@@ -125,8 +125,8 @@
                 :icon="['fas', grimoire.isHideSittingWarning ? 'check-square' : 'square']"
             /></em>
           </li>
-          <li @click="toggleEndgame" v-if="!session.isSpectator && players.length">
-            Ukončení hry
+          <li v-if="!session.isSpectator && players.length" @click="toggleEndgame">
+            Ukončit hru
             <em>
               [U]
               <font-awesome-icon
@@ -293,6 +293,8 @@ export default {
         this.$store.commit("session/clearVoteHistory");
         this.$store.commit("session/setSpectator", false);
         this.$store.commit("session/setSessionId", sessionId);
+        this.grimoire.isHideSittingWarning = true;
+        this.grimoire.isNightOrder = true;
         this.copySessionUrl();
       }
     },
@@ -335,6 +337,8 @@ export default {
         this.$store.commit("session/setSpectator", true);
         this.$store.commit("toggleGrimoire", false);
         this.$store.commit("session/setSessionId", sessionId);
+        this.grimoire.isHideSittingWarning = false;
+        this.grimoire.isNightOrder = false;
       }
     },
     leaveSession() {
@@ -346,7 +350,7 @@ export default {
     addPlayer() {
       if (this.session.isSpectator || this.grimoire.isEndgame) return;
       if (this.players.length >= 20) return;
-      const name = prompt("Jméno hráče");
+      const name = prompt("Jméno hráče", "Hráč " + (this.players.length + 1));
       if (name) {
         this.$store.commit("players/add", name);
       }

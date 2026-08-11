@@ -1,4 +1,21 @@
-# Release Notes
+# Poznámky k aktualizacím
+
+### Verze 2.18.4
+- Přidání možnosti změny příslušnosti u role
+  - Kvůli této funkci byly přidány alternativní ikonky všech hráčských postav
+  - Tato změna je viditelná pouze pro hráče, který ji změnil
+  - Zároveň podporuje správné zobrazení příslušnosti při posílání rolí a při shrnutí hry
+- Přidání zobrazení jména hráče při najetí na jeho jméno
+- Nově přidávání nového hráče do hry má základní jméno, pokud uživatel žádné nezadá
+- Nově se vypravěči automaticky skryje varování, že nesedí
+- Nově se hráčům automaticky skryje noční pořadí u žetonů
+- Posunutí ikonek v nočním pořadí, aby byly celé vidět
+- Přesunutí ikonky, zda hráč sedí, na levý okraj pole se jménem hráče relativně vůči pole se jménem (dříve bylo relativně vůči žetonu hráče)
+- Přesunutí tlačítek u vypravěče na uvolnění místa a na zahájení nominací
+- Změna popisu v Grimoáru na "Ukončit hru" (dříve bylo "Ukončení hry")
+- Změna popisu webu na "Grimoár/Námestí hry Krvavá hodina odbila" (dříve bylo Krvavá hodina odbila Grimoár/náměstí)
+
+---
 
 ### Verze 2.18.3
 - Přidání varování u nominací pro mrtvé hráče, že mají poslední hlas

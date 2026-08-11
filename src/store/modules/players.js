@@ -7,6 +7,7 @@ const NEWPLAYER = {
   isDead: false,
   isTalking: false,
   isSent: false,
+  hasAlignment: 0, // 0 = default, 1 = inverted / good traveler, 2 = inverted / evil traveler
   pronouns: ""
 };
 

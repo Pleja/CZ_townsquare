@@ -1,6 +1,6 @@
 {
   "name": "townsquare",
-  "version": "2.18.4",
+  "version": "2.18.5",
   "description": "Náměstí hry Krvavá hodina odbila",
   "author": "Steffen Baumgart",
   "scripts": {
@@ -35,12 +35,14 @@
   "keywords": [
     "botc",
     "townsquare",
+    "náměstí",
     "vue",
     "scss"
   ],
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com//bra1n/townsquare.git"
+    "url": "https://github.com//bra1n/townsquare.git",
+    "url_new": "https://github.com/Pleja/CZ_townsquare"
   }
 }

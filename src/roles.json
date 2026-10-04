@@ -364,7 +364,8 @@
     "firstNightReminder": "Ukaž jí označený token postavy. Ukaž na označeného hráče.",
     "otherNight": 67,
     "otherNightReminder": "Pokud bylo vnouče zabito Démonem tuto noc: Babička umírá.",
-    "reminders": ["Vnouče"],
+    "reminders": ["Vnouče",
+        "Mrtvá"],
     "setup": false,
     "ability": "Na začátku hry zjistíš jednoho dobrého hráče a jeho postavu. Pokud Démon zabije tuto postavu, umíráš také."
   },
@@ -396,13 +397,13 @@
   },
   {
     "id": "exorcist",
-    "name": "Vymítač Ďábla",
+    "name": "Vymítač ďábla",
     "edition": "bmr",
     "team": "townsfolk",
     "firstNight": 0,
     "firstNightReminder": "",
     "otherNight": 30,
-    "otherNightReminder": "Vymítač Ďábla ukáže na hráče, jiného, než minulou noc. Pokud je tento hráč Démon: Probuď Démona. Ukaž mu token Vymítače Ďábla. Ukaž na Vymítače Ďábla. Démon tuto noc neprovádí žádnou akci.",
+    "otherNightReminder": "Vymítač ďábla ukáže na hráče, jiného, než minulou noc. Pokud je tento hráč Démon: Probuď Démona. Ukaž mu token Vymítače ďábla. Ukaž na Vymítače ďábla. Démon tuto noc neprovádí žádnou akci.",
     "reminders": ["Zvolený"],
     "setup": false,
     "ability": "Každou noc* si vyber hráče (jiného než minulou noc): Démon, pokud ho vybereš, zjistí, kdo jsi a poté se tento večer neprobudí."
@@ -486,7 +487,7 @@
     "firstNightReminder": "",
     "otherNight": 0,
     "otherNightReminder": "",
-    "reminders": ["Každý je opilý"],
+    "reminders": ["Všichni jsou opilí"],
     "setup": false,
     "ability": "Pokud Poskok zemře popravou, tak jsou všichni hráči (kromě Poutníků) opilí až do zítřejšího soumraku."
   },
@@ -577,9 +578,7 @@
     "firstNightReminder": "Při 7 a více hráčích: Ukaž Bláznovi libovolný počet 'Poskoků', odpovídající počtu Poskoků ve hře. Ukaž 3 tokeny libvolných dobrých postav. Pokud token získaný Bláznem je Démon, který by se večer probudil: Dovol Bláznovi udělat akce tohoto Démona. Polož jeho 'útočné' značky. Probuď Démona. Ukaž Démonovi reálný token postavy. Ukaž mu hráče s rolí Blázna. Pokud Blázen zaútočil na hráče: Ukaž pravému Démonovi každého označeného hráče. Odeber všechny Bláznovy 'útočné' značky.",
     "otherNight": 29,
     "otherNightReminder": "Dovol Bláznovi vykonat akce jeho Démona. Polož jeho 'útočné' značky. Pokud Blázen vybral hráče: Probuď Démona. Ukaž mu 'útočné' značky a poté ukaž na označené hráče. Odeber všechyn Bláznovy 'útočné' značky.",
-    "reminders": ["Útok 1",
-        "Útok 2",
-        "Útok 3"],
+    "reminders": ["Zvolený"],
     "setup": false,
     "ability": "Myslíš si, že jsi Démon, ale nejsi. Démon ví, kdo jsi a koho vybíráš v noci."
   },
@@ -591,11 +590,11 @@
     "firstNight": 33,
     "firstNightReminder": "Ukaž Kmotrovi token každého Podívína aktuálně ve hře.",
     "otherNight": 51,
-    "otherNightReminder": "Pokud dnes zemřel Podivín: Kmotr ukáže na hráče. Tento hráč zemře.",
+    "otherNightReminder": "Pokud během dne zemřel Podivín: Kmotr ukáže na hráče. Tento hráč zemře.",
     "reminders": ["Dnes zemřel",
         "Mrtvý"],
     "setup": true,
-    "ability": "Na začátku hry se dozvíš, kteří Podivíni jsou ve hře. Pokud dnes 1 zemřel, vyber si večer hráče: ten zemře. [\u22121 nebo +1 Podivínů]"
+    "ability": "Na začátku hry se dozvíš, kteří Podivíni jsou ve hře. Pokud během dne jeden zemřel, vyber si večer hráče: ten zemře. [\u22121 nebo +1 Podivínů]"
   },
   {
     "id": "devilsadvocate",
@@ -647,7 +646,8 @@
     "otherNight": 35,
     "otherNightReminder": "Pokud nikdo přes den nezemřel: Zombuul ukáže na hráče. Tento hráč zemře.",
     "reminders": ["Dnes zemřel",
-        "Mrtvý"],
+        "Mrtvý",
+        "Nemrtvý"],
     "setup": false,
     "ability": "Každou noc*, pokud dnes nikdo nezemřel, tak si zvol hráče: zemře. Když 1. zemřeš, tak žiješ, ale jevíš se jako mrtvý."
   },
@@ -699,7 +699,7 @@
     "edition": "bmr",
     "team": "traveler",
     "firstNight": 2,
-    "firstNightReminder": "Show the Apprentice the 'You are' card, then a Townsfolk or Minion token. In the Grimoire, replace the Apprentice token with that character token, and put the Apprentice's 'Is the Apprentice' reminder by that character token.",
+    "firstNightReminder": "Ukaž Učedníkovi kartu 'Ty jsi', poté tokem Měšťana nebo Poskoka. V Grimoáru zaměň token Učedníka za token ukázané postavy a umísti Učedníkův připomínkový token 'Je Učedník' vedle ukázaného tokenu.",
     "otherNight": 0,
     "otherNightReminder": "",
     "reminders": ["Je Učedník"],
@@ -807,7 +807,7 @@
     "firstNightReminder": "Ukaž na ruce počet hráčů, kterým selhala schopnost kvůli jiným schopnostem (1, 2, 3, \u2026).",
     "otherNight": 90,
     "otherNightReminder": "Ukaž na ruce počet hráčů, kterým selhala schopnost kvůli jiným schopnostem (1, 2, 3, \u2026).",
-    "reminders": ["Neobvyklý"],
+    "reminders": ["Neobvyklá"],
     "setup": false,
     "ability": "Každou noc se dozvíš, kolik hráčských schopností fungovalo neobvykle (od svítání) kvůli schopnosti jiných postav."
   },
@@ -835,7 +835,7 @@
     "otherNight": 75,
     "otherNightReminder": "Zakývej hlavou 'ano' nebo 'ne', podle toho, zda dnes Poskok nominoval. Polož si připomínkový žeton 'Poskok NEnominoval' (a případně odeber 'Poskok nominoval').",
     "reminders": ["Poskok nominoval",
-        "Poskok NEnominoval"],
+        "Poskoci NEnominovali"],
     "setup": false,
     "ability": "Každou noc* se dozvíš, jestli dneska Poskok nominoval."
   },
@@ -887,8 +887,8 @@
     "firstNightReminder": "Filozof buď zakýve hlavou 'ne', nebo ukáže na dobrou postavu v referenční tabulce. Pokud Filozof vybral postavu: Prohoď token postavy, která není ve hře, s tokenem Filozofa, a přidej si připomínkový žeton 'Je Filozof'. Pokud je postava ve hře, tak polož žeton opití k tomuto hráči.",
     "otherNight": 5,
     "otherNightReminder": "Pokud Filozof ještě nepoužil svoji schopnost: Filozof buď zakýve hlavou 'ne', nebo ukáže na dobrou postavu v referenční tabulce. Pokud Filozof vybral postavu: Prohoď token postavy, která není ve hře, s tokenem Filozofa, a přidej si připomínkový žeton 'Je Filozof'. Pokud je postava ve hře, tak polož žeton opití k tomuto hráči.",
-    "reminders": ["Opilý",
-        "Je Filozof"],
+    "reminders": ["Opilý"],
+    "remindersGlobal": ["Je Filozof"],
     "setup": false,
     "ability": "Jednou za hru, v noci, si vyber dobrou postavu: získáš tuto schopnost. Pokud je tato postava ve hře, tak je opilá."
   },
@@ -966,7 +966,7 @@
     "firstNightReminder": "",
     "otherNight": 54,
     "otherNightReminder": "Pokud dnes zemřel Holič: Vzbuď Démona. Ukaž mu kartu 'Tahle postava tě vybrala', poté token Holiče. Démon buď zakýve hlavou 'ne', nebo ukáže na 2 hráče. Pokud ukázal na 2 hráče: Prohoď jim tokeny postav. Vzbuď postupně každého z těchto hráčů. Ukaž jim kartu 'Ty jsi' a poté jejich nový token postavy.",
-    "reminders": ["Účes v noci"],
+    "reminders": ["Účesy večer"],
     "setup": false,
     "ability": "Pokud jsi dnes zemřel, nebo zemřeš v noci, tak si Démon může vybrat 2 hráče (ne dalšího Démona), aby si prohodili postavy."
   },
@@ -1024,16 +1024,16 @@
   },
   {
     "id": "pithag",
-    "name": "Pit-Hag",
+    "name": "Ježibaba",
     "edition": "snv",
     "team": "minion",
     "firstNight": 0,
     "firstNightReminder": "",
     "otherNight": 23,
-    "otherNightReminder": "Pit-Hag ukáže na hráče a na postavu v její referenční tabulce. Pokud tato postava není ve hře, tak probuď zvoleného hráče a ukaž mu kartu 'Ty jsi' a relevantní token postavy. Pokud je postava ve hře, nic se nestane.",
+    "otherNightReminder": "Ježibaba ukáže na hráče a na postavu v její referenční tabulce. Pokud tato postava není ve hře, tak probuď zvoleného hráče a ukaž mu kartu 'Ty jsi' a relevantní token postavy. Pokud je postava ve hře, nic se nestane.",
     "reminders": [],
     "setup": false,
-    "ability": "Každou noc* si vyber hráče a postavu, kterou dostanou (pokud není ve hře). Pokud je takto vytvořen Démon, tak jsou smrti tuto noc svévolné."
+    "ability": "Každou noc* si vyber hráče a postavu, kterou dostanou (pokud není ve hře). Pokud je takto vytvořen Démon, tak tu noc může zemřít kdokoliv."
   },
   {
     "id": "fanggu",
@@ -1045,7 +1045,7 @@
     "otherNight": 39,
     "otherNightReminder": "Fang Gu ukáže na hráče. Tento hráč zemře. Nebo, pokud byl tento hráč Podivín a v Grimoáru není připomínkový žeton 'Jednou': Fang Gu zemře místo vybraného hráče. Vybraný hráč je od teď zlý Fang Gu. Probuď nového Fang Gu. Ukaž mu kartu 'Ty jsi', poté token Fang Gu. Ukaž mu kartu 'Ty jsi', poté na ruce palec dolů ('zlý'). Polož si do Grimoáru žeton 'Jednou'.",
     "reminders": ["Mrtvý",
-        "Jednou"],
+        "Jedenkrát"],
     "setup": true,
     "ability": "Každou noc* si vyber hráče: zemře. 1. Podivín, kterého zabiješ se stane zlým Fang Gu a ty zemřeš místo něho. [+1 Podivín]"
   },
@@ -1103,7 +1103,7 @@
     "reminders": ["Střízlivý a Zdravý",
         "Dvě schopnosti"],
     "setup": false,
-    "ability": "Každou noc, do soumraku, 1) hráč se stane střízlivým, zdravým a dostane správné informace, nebo 2) jejich schopnost funguje dvakrát. Dozví se, jaký efekt dostali."
+    "ability": "Každou noc, do soumraku, 1) hráč se stane střízlivým, zdravým a dostane správné informace, nebo 2) jeho schopnost funguje dvakrát. Dozví se, jaký efekt dostali."
   },
   {
     "id": "harlot",
@@ -1114,7 +1114,8 @@
     "firstNightReminder": "",
     "otherNight": 2,
     "otherNightReminder": "Prostitutka ukáže na živého hráče. Poté Prostitutku uspi. Vzbuď vybraného hráče a ukaž mu kartu 'Tato postava tě vybrala', poté token Prostitutky. Tento hráč buď zakýve hlavou 'ano' nebo 'ne'. Pokud zakýval 'ano', tak probuď Prostitutku a ukaž jí token zvoleného hráče. Poté se rozhodni, jestli oba zemřou.",
-    "reminders": ["Mrtvý"],
+    "reminders": ["Mrtvá",
+        "Mrtvý"],
     "setup": false,
     "ability": "Každý den* si vyber živého hráče: pokud souhlasí, tak se dozvíš jeho postavu, ale oba můžete zemřít."
   },

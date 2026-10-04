@@ -171,7 +171,7 @@
           </li>
           <li
             @click="changeAlignment"
-            v-if="!session.isSpectator"
+            v-if="!grimoire.isEndgame || !session.isSpectator"
           >
           <!-- v-if="!grimoire.isEndgame || !session.isSpectator" -->
             <font-awesome-icon icon="yin-yang" />Změnit příslušnost

@@ -1,5 +1,11 @@
 # Poznámky k aktualizacím
 
+### Verze 2.18.5
+- Oprava chyby, díky které hráči nemohli měnit příslušnosti postav ve svém Grimoáru
+- Oprava chyb v překladu ve scénářích "Čas krvavého měsíce" a "Sekty a fialky"
+
+---
+
 ### Verze 2.18.4
 - Přidání možnosti změny příslušnosti u role
   - Kvůli této funkci byly přidány alternativní ikonky všech hráčských postav
